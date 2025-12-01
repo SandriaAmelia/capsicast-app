@@ -3,7 +3,7 @@ Forecasting Large Red Chili Prices in East Java Using a GSTAR-SUR Model
 
 ## Setup environment
 ```
-conda create --name main-ds python=3.9
+conda create --name main-ds python=3.11.14
 conda activate main-ds
 pip install numpy pandas scipy statsmodels linearmodels scikit-learn matplotlib seaborn geopy streamlit
 ```
