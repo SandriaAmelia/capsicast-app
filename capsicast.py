@@ -410,16 +410,6 @@ elif menu == "Data & Analisis":
             df = pd.read_csv(uploaded_file, sep=';', encoding='latin1')
     else:
         df = pd.read_excel(uploaded_file)
-    
-    if uploaded_file is not None:
-        st.success(f"Berhasil mengunggah: {uploaded_file.name}")
-        
-        try:
-            # Support untuk CSV dan Excel
-            if uploaded_file.name.endswith('.csv'):
-                df = pd.read_csv(uploaded_file, sep=';', encoding='utf-8-sig')
-            else:
-                df = pd.read_excel(uploaded_file)
             
             # Deteksi kolom tanggal
             guess_date = None
