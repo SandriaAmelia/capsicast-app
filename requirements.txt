@@ -1,5 +1,6 @@
 streamlit
 numpy
+openpyxl
 pandas
 scipy
 statsmodels
