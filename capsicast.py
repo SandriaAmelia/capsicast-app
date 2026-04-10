@@ -399,17 +399,15 @@ elif menu == "Data & Analisis":
     
     uploaded_file = st.file_uploader("Unggah File Data (CSV/Excel)", type=["csv", "xlsx", "xls"], label_visibility="collapsed")
     
-    if uploaded_file.name.endswith('.csv'):
-        try:
-            df = pd.read_csv(uploaded_file, sep=None, engine='python')
+    if uploaded_file is not None:
+        st.success(f"Berhasil mengunggah: {uploaded_file.name}")
         
-            if df.shape[1] == 1:
-                df = pd.read_csv(uploaded_file, sep=';', encoding='utf-8-sig')
-            
-        except Exception:
-            df = pd.read_csv(uploaded_file, sep=';', encoding='latin1')
-    else:
-        df = pd.read_excel(uploaded_file)
+        try:
+            # Support untuk CSV dan Excel
+            if uploaded_file.name.endswith('.csv'):
+                df = pd.read_csv(uploaded_file)
+            else:
+                df = pd.read_excel(uploaded_file)
             
             # Deteksi kolom tanggal
             guess_date = None
