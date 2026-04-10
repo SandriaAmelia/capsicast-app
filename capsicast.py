@@ -738,7 +738,9 @@ elif menu == "Pemodelan GSTAR-SUR":
                             if den != 0:
                                 cross.iloc[i, j] = num / den
                 
-                np.fill_diagonal(cross.values, 0)
+                cross_arr = cross.to_numpy(copy=True)
+                np.fill_diagonal(cross_arr, 0)
+                cross.iloc[:, :] = cross_arr
                 
                 st.write("**Matriks Cross-Correlation (lag {})**:".format(k))
                 st.dataframe(cross.round(4))
